@@ -43,4 +43,7 @@ def four(data):
 
 if __name__ == '__main__':
     df = plotly.data.election()
+    one(df)
+    two(df)
+    three(df)
     four(df)

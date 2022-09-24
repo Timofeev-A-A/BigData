@@ -85,5 +85,8 @@ if __name__ == '__main__':
     print(df.head(20))
     df.info()
     print(df.isna().sum())
+    task_three(df)
+    task_four(df)
+    task_five(df)
     task_six(df)
 
