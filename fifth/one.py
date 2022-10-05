@@ -19,10 +19,10 @@ def tsne_visualiser(df, data):
         DATA['y'] = tsne_features[:, 1]
 
         fig = plt.figure()
-        sns.scatterplot(x='x', y='y', hue=df['class_type'], data=DATA, palette='bright')
+        sns.scatterplot(x='x', y='y', hue=df['class'], data=DATA, palette='bright')
         plt.title(label="perplexity " + str(perp))
-        plt.legend(title='Animal type',
-                   labels=['Reptile', 'Fish', 'Amphibian', 'Insect', 'Invertebrates', 'Mammal', 'Birb'])
+        plt.legend(title='Iris type',
+                   labels=['Setosa', 'Versicolour', 'Virginica'])
         plt.show()
 
 
@@ -36,16 +36,16 @@ def umap_visualiser(df, data):
             DATA['x'] = um[:, 0]
             DATA['y'] = um[:, 1]
             fig = plt.figure()
-            sns.scatterplot(x='x', y='y', hue=df['class_type'], data=DATA, palette='bright')
+            sns.scatterplot(x='x', y='y', hue=df['class'], data=DATA, palette='bright')
             plt.title(label=f"neighbors {n}, distance {d}")
-            plt.legend(title='Animal type',
-                       labels=['Reptile', 'Fish', 'Amphibian', 'Insect', 'Invertebrates', 'Mammal', 'Birb'])
+            plt.legend(title='Iris type',
+                       labels=['Setosa', 'Versicolour', 'Virginica'])
             plt.show()
 
 
 if __name__ == '__main__':
-    dfo = pd.read_csv('zoo.csv')
-    dataFrame = dfo.drop(['class_type', 'animal_name'], axis=1)
+    dfo = pd.read_csv('iris.csv')
+    dataFrame = dfo.drop(['class'], axis=1)
     scaler = preprocessing.MinMaxScaler()
     dataFrame = pd.DataFrame(scaler.fit_transform(dataFrame), columns=dataFrame.columns)
     tsne_visualiser(df=dfo, data=dataFrame)
