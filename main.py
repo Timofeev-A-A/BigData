@@ -1,16 +1,28 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import math
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Function to check if x is power of 4
+def isPowerOfFour(n):
+    if (n != 0 and n == pow(4, (math.log(n) / math.log(4)))):
+        print(pow(4, (math.log(n) / math.log(4))))
+        return True
+    print(pow(4, (math.log(n) / math.log(4))))
+    return False
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def isPowerOfFour2(n):
+    if (n == 0):
+        return False
+    while (n != 1):
+        if (n % 4 != 0):
+            return False
+        n = n // 4
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    return True
+
+
+test_no = 8
+if (isPowerOfFour2(test_no)):
+    print(test_no, ' is a power of 4')
+else:
+    print(test_no, ' is not a power of 4')
